@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.1 (branches/2.1-6728; 2011-02-03T14:14:58+0000) JAXWS-RI/2.2.3 JAXWS/2.2. --><xs:schema xmlns:tns="http://DataManagementComponent/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://DataManagementComponent/">
+
+<xs:element name="ObjectRequest" type="tns:ObjectRequest" />
+
+<xs:element name="ObjectRequestResponse" type="tns:ObjectRequestResponse" />
+
+<xs:element name="SQLRequest" type="tns:SQLRequest" />
+
+<xs:element name="SQLRequestResponse" type="tns:SQLRequestResponse" />
+
+<xs:complexType name="SQLRequest">
+<xs:sequence>
+<xs:element name="ReceivedCmd" type="tns:SQLCmdClass" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SQLCmdClass">
+<xs:sequence>
+<xs:element name="session_id" type="xs:string" />
+<xs:element name="SQL" type="xs:string" />
+<xs:element name="start_row" type="xs:long" />
+<xs:element name="lengh" type="xs:int" />
+<xs:element name="params" type="tns:FieldClass" maxOccurs="unbounded" />
+<xs:element name="paramTypes" type="xs:string" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="FieldClass">
+<xs:sequence>
+<xs:element name="fieldName" type="xs:string" />
+<xs:element name="fieldValue" type="xs:string" />
+<xs:element name="fieldType" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SQLRequestResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:ResultSetClass" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ResultSetClass">
+<xs:sequence>
+<xs:element name="session_id" type="xs:string" />
+<xs:element name="status" type="xs:string" />
+<xs:element name="desc" type="xs:string" />
+<xs:element name="start" type="xs:int" />
+<xs:element name="lengh" type="xs:int" />
+<xs:element name="column_names" type="xs:string" maxOccurs="unbounded" />
+<xs:element name="column_types" type="xs:int" maxOccurs="unbounded" />
+<xs:element name="records" type="tns:RecordClass" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="RecordClass">
+<xs:sequence>
+<xs:element name="row" type="xs:string" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ObjectRequest">
+<xs:sequence>
+<xs:element name="messageReceived" type="tns:ObjectMessageClass" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ObjectMessageClass">
+<xs:sequence>
+<xs:element name="protocolversion" type="xs:string" />
+<xs:element name="status" type="xs:string" />
+<xs:element name="desc" type="xs:string" />
+<xs:element name="session_id" type="xs:string" />
+<xs:element name="objClass" type="xs:string" />
+<xs:element name="objID" type="xs:long" />
+<xs:element name="action" type="xs:string" />
+<xs:element name="fieldCount" type="xs:int" />
+<xs:element name="fieldList" type="tns:FieldClass" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ObjectRequestResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:ObjectMessageClass" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

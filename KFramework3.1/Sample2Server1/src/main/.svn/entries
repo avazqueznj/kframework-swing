@@ -1,0 +1,47 @@
+10
+
+dir
+933
+https://svn.code.sf.net/p/k-framework/code/trunk/Sample2Server1/src/main
+https://svn.code.sf.net/p/k-framework/code
+
+
+
+2012-12-30T03:14:56.274927Z
+925
+vmaxxed
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5af50125-c909-4175-a8d9-2fb2f3153ed6
+
+
+
+
+
+
+0
+
+java
+dir
+
+resources
+dir
+
+setup
+dir
+
+webapp
+dir
+

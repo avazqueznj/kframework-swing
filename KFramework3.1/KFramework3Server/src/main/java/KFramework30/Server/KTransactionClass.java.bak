@@ -1,0 +1,266 @@
+/*
+This source code is part of the KFRAMEWORK  (http://k-framework.sourceforge.net/)
+Copyright (C) 2001  Alejandro Vazquez, Ke Li
+Feedback / Bug Reports vmaxxed@users.sourceforge.net
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
+package KFramework30.Server;
+
+
+import java.sql.*;
+import KFramework30.Base.*;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+import javax.persistence.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+// OPENJPA WEBLOGIC
+import org.apache.openjpa.persistence.*;
+
+
+
+public class KTransactionClass {
+
+           
+        // uses
+        private static EntityManagerFactory     factory;        
+        
+        private KConfigurationClass configuration;
+        private KLogClass log;
+        private String SESSION_ID;
+
+        // has
+        private List< PreparedStatement >       activeSQLStatements;
+        private EntityManager                   entityManager = null;                        
+
+                //-----------------------------------------
+
+
+        public KTransactionClass( 
+                KConfigurationClass configurationParam, KLogClass logParam, 
+                String SESSION_IDParam, String persistentUnitName ) throws KExceptionClass
+        {
+
+            // uses
+            configuration = configurationParam;
+            log = logParam;   
+            SESSION_ID = SESSION_IDParam;
+
+
+            // has
+            logParam.log( this, ">>> TRANSACTION CONNECTING --" );     
+            activeSQLStatements = new ArrayList< PreparedStatement >();    
+
+            try{
+
+                // get a JPA factory
+                if( factory == null ) factory = OpenJPAPersistence.createEntityManagerFactory( persistentUnitName, (String) null ); 
+
+                // get a manager
+                entityManager = factory.createEntityManager();
+
+                // ---------------------->  START TRANSACTION
+                entityManager.getTransaction().begin();                          
+
+
+            }catch( Exception error ){
+
+                log.log( this, "Could not activate transaction " + error.toString() );
+                throw new KExceptionClass( "Could not activate session " + error.toString(), error );
+            }                        
+
+        }
+
+        //----------------------------------------------
+
+        // use session's closeTransaction
+        public void close() throws KExceptionClass{
+
+          log.log( this, "<<< TRANSACTION CLOSING --" );     
+
+            try{
+
+                flush();
+
+                if( entityManager.getTransaction().isActive() ) entityManager.getTransaction().rollback();
+
+                entityManager.close();
+
+            }catch( Exception error ){
+
+                log.log( this, "Could not close trx " + error.toString() );
+                throw new KExceptionClass( "Could not close trx " + error.toString(), error );
+            }                        
+
+        }
+
+
+        //------------------------------------------------        
+
+        public EntityManager getEntityManager() throws KExceptionClass{
+            return( (EntityManager) entityManager );
+        }  
+
+        //------------------------------------------------        
+
+        public  Query getEntityQuery( String SQLcommand ) throws KExceptionClass{
+            return( entityManager.createQuery( SQLcommand ) );
+        }             
+
+        //------------------------------------------------    
+
+
+        public synchronized PreparedStatement createSQLStatement( String SQL ) throws KExceptionClass{
+
+                       
+            PreparedStatement statement;
+            
+            try{
+                
+                
+                // try eclipse  GLASSFISH
+//Connection connection = entityManager.unwrap(java.sql.Connection.class);                                
+
+
+                // try openJPA  WEBLOGIC
+OpenJPAEntityManager OPNJPAEntitymanager = OpenJPAPersistence.cast( entityManager );                    
+Connection connection = (Connection) OPNJPAEntitymanager.getConnection();
+                               
+                statement = 
+                       connection.prepareStatement(
+                            SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+
+            }catch( Exception error){
+                throw new KExceptionClass("Could not create a SQL statement" + error.toString(), error);
+            }
+
+            activeSQLStatements.add( statement );
+
+            return( statement );
+
+        }
+
+        public synchronized void removeSQLStatement( PreparedStatement SQLStatement ) throws KExceptionClass{
+
+                try {
+
+                    SQLStatement.close();
+
+                    activeSQLStatements.remove( SQLStatement );
+
+                } catch (Exception error) {
+
+                    throw new KExceptionClass("Could not remove a SQL statement" + error.toString(), error);                        
+                }
+
+        };
+
+        //------------------------------------------------                
+
+        public void commitCurrentTransaction() throws KExceptionClass{
+
+
+            log.log( this, ">>>>>>>>> COMMIT TRANSACTION" );  
+
+            entityManager.getTransaction().commit();
+
+            entityManager.clear();
+
+            flush();
+
+            entityManager.getTransaction().begin();
+
+
+        }   
+
+        //------------------------------------------------
+
+        public void rollbackCurrentTransaction() throws KExceptionClass{
+
+            log.log( this, ">>>>>>>>> ROLLBACK TRANSACTION" );  
+
+            entityManager.getTransaction().rollback();
+
+            flush();
+
+            entityManager.getTransaction().begin();  
+
+        }        
+
+
+        // ================================================================================== 
+
+
+        public void flush(){
+
+            log.log( this, "Flush all cursors...");        
+            while( !activeSQLStatements.isEmpty() ){
+
+                    try{
+
+                        Statement statement = activeSQLStatements.get( 0 );
+
+                        statement.close(); 
+                                                                        
+                        activeSQLStatements.remove( statement );
+
+                    }
+                    catch( Exception error  ) {                   
+                        String message = "Cannot close SQL cursor...\nException: " + error;
+                        log.log( this, message );
+
+                    }                           
+            }
+
+        }                
+
+        // ================================================================================== 
+
+        public String getSESSION_ID() {
+            return SESSION_ID;
+        }
+
+        public void setSESSION_ID(String SESSION_ID) {
+            this.SESSION_ID = SESSION_ID;
+        }                                
+
+        // ==================================================================================   
+
+        public KBusinessObjectClass detach( KBusinessObjectClass enhancedObject ) {
+            
+log.log( this, "Detach object .... >>>>>>>>>>>>>>><<<<<<<<<<<<<<" );
+            
+KBusinessObjectClass result;                        
+OpenJPAEntityManager OPNJPAEntitymanager = OpenJPAPersistence.cast( entityManager );                    
+
+// open jpa 1.0
+//result = OPNJPAEntitymanager.detach( enhancedObject );
+
+// open jpa 2.2
+result = OPNJPAEntitymanager.detachCopy( enhancedObject );
+
+return( result );
+
+        }
+    
+        // ==================================================================================       
+
+}

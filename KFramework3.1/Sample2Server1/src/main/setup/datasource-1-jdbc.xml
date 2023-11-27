@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jdbc-data-source >
+    
+  <name>KFRAMEWORK_DATASOURCE3</name>
+  
+  <jdbc-driver-params>
+    <url>jdbc:oracle:thin:@localhost:1521:XE</url>
+    <driver-name>oracle.jdbc.OracleDriver</driver-name>
+    <properties>
+        
+      <property>
+        <name>user</name>
+        <value>sample</value>
+      </property>
+      
+      <property>
+        <name>password</name>
+        <value>sample</value>
+      </property>
+      
+    </properties>
+  </jdbc-driver-params>
+  
+  <jdbc-data-source-params>
+    <jndi-name>KFRAMEWORK_DATASOURCE3</jndi-name>
+  </jdbc-data-source-params>
+  
+  
+  <jdbc-connection-pool-params>    
+      <initial-capacity>3</initial-capacity>    
+      <max-capacity>20</max-capacity>    
+      <test-connections-on-reserve>true</test-connections-on-reserve>    
+      <test-table-name>SQL SELECT COUNT(*) FROM DUAL</test-table-name>  
+  </jdbc-connection-pool-params>  
+  
+</jdbc-data-source>

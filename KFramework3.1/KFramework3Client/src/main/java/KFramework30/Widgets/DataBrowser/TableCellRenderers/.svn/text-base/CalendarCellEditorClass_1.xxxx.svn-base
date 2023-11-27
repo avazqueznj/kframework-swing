@@ -1,0 +1,153 @@
+/*
+This source code is part of the KFRAMEWORK  (http://k-framework.sourceforge.net/)
+Copyright (C) 2001  Alejandro Vazquez, Ke Li
+Feedback / Bug Reports vmaxxed@users.sourceforge.net
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
+package KFrameWork.Widgets.DataBrowser.TableCellRenderers;
+
+//rtl
+import KFrameWork.Widgets.DataBrowser.KTableCellEditorBaseClass;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;
+import java.awt.*;
+
+// utilities
+import KFrameWork.Base.*;
+import KFrameWork.Widgets.KDataBrowserBaseClass;
+import KFrameWork.Widgets.DataBrowser.tableModelClass;
+
+
+public class CalendarCellEditorClass_1 
+extends KTableCellEditorBaseClass
+{
+    
+        // uses
+        public int                  columnType;        //info on column data type      
+        
+        Font                   columnFont;
+        int                    columnAligment;        
+
+        // Contructor
+        public CalendarCellEditorClass_1(                
+                tableModelClass tableModelParam,
+                KLogClass logParam  )
+        throws KExceptionClass        
+        {
+            super( tableModelParam, logParam );
+
+            // uses
+            columnType =  KDataBrowserBaseClass.DATE;
+
+            // has defaulted
+            
+            
+            // setup
+            
+            setClickCountToStart( 1 );
+        }        
+        
+      //---------------------------------------------------------        
+      // Interface
+
+        @Override
+        public Component getTableCellEditorComponent(
+                JTable table, Object value, boolean isSelected, int row, int column){ 
+                    
+                try {
+                    
+                   editor = new DateTimePicker( 
+                           KMetaUtilsClass.stringToDate( 
+                                KMetaUtilsClass.DISPLAY_DATE_TIME_FORMAT, (String) value ), KMetaUtilsClass.DISPLAY_DATE_TIME_FORMAT );
+                    
+                } catch (KExceptionClass ex) {
+                    
+                   editor = new DateTimePicker( );                           
+                }
+                    
+
+
+                //((DateTimePicker) editor ).setFont( getColumnFont() );
+             
+                    
+                // the default is OK     
+                return(
+                        super.getTableCellEditorComponent(
+                        table,  value,  isSelected,  row,  column) 
+                        );
+        }        
+        
+  
+    
+      //---------------------------------------------------------       
+        
+        @Override
+        public Object getCellEditorValue() {
+
+            return (
+                KMetaUtilsClass.dateToString(KMetaUtilsClass.DISPLAY_DATE_TIME_FORMAT, ((DateTimePicker)editor ).getDate() )
+                    );
+                
+           
+        }
+        
+    //---------------------------------------------------------                           
+
+    public int getColumnAligment() {
+        return columnAligment;
+    }
+
+    public void setColumnAligment(int columnAligment) {
+        this.columnAligment = columnAligment;
+    }
+
+    public Font getColumnFont() {
+        return columnFont;
+    }
+
+    public void setColumnFont(Font columnFont) {
+        this.columnFont = columnFont;
+    }
+
+    public int getColumnType() {
+        return KDataBrowserBaseClass.DATE;
+    }
+
+    public void setColumnType(int columnType) throws KExceptionClass {
+        
+            switch( columnType ){
+
+                   
+                case 
+                        KDataBrowserBaseClass.DATE:
+                        break;   
+
+                default:                    
+                throw new KExceptionClass(
+                    "Could not set renderer data type. Type specified is invalid."  , null 
+                );
+            }        
+        this.columnType = columnType;
+    }
+        
+        //---------------------------------------------------------       
+        
+        
+        
+
+}

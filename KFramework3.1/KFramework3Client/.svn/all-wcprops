@@ -1,0 +1,27 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 29
+/p/k-framework/code/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client
+END
+catalog.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/catalog.xml
+END
+nb-configuration.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/nb-configuration.xml
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/pom.xml
+END

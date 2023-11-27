@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/k-framework/code/!svn/ver/921/trunk/Sample2Server1/src/main/setup
+END
+glassfish-resources.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/p/k-framework/code/!svn/ver/921/trunk/Sample2Server1/src/main/setup/glassfish-resources.xml
+END
+datasource-1-jdbc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/p/k-framework/code/!svn/ver/921/trunk/Sample2Server1/src/main/setup/datasource-1-jdbc.xml
+END

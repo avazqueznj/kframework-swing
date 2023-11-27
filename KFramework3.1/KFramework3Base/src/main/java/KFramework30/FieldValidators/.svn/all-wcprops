@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/p/k-framework/code/!svn/ver/910/trunk/KFramework3Base/src/main/java/KFramework30/FieldValidators
+END
+charactersFieldValidatorClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/p/k-framework/code/!svn/ver/910/trunk/KFramework3Base/src/main/java/KFramework30/FieldValidators/charactersFieldValidatorClass.java
+END
+numbersFieldValidatorClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/p/k-framework/code/!svn/ver/910/trunk/KFramework3Base/src/main/java/KFramework30/FieldValidators/numbersFieldValidatorClass.java
+END
+capsLettersFieldValidatorClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/p/k-framework/code/!svn/ver/910/trunk/KFramework3Base/src/main/java/KFramework30/FieldValidators/capsLettersFieldValidatorClass.java
+END
+timeFieldValidatorClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/p/k-framework/code/!svn/ver/910/trunk/KFramework3Base/src/main/java/KFramework30/FieldValidators/timeFieldValidatorClass.java
+END
+capsLettersNumbersFieldValidatorClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/p/k-framework/code/!svn/ver/910/trunk/KFramework3Base/src/main/java/KFramework30/FieldValidators/capsLettersNumbersFieldValidatorClass.java
+END
+currencyFieldValidatorClass1.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/p/k-framework/code/!svn/ver/910/trunk/KFramework3Base/src/main/java/KFramework30/FieldValidators/currencyFieldValidatorClass1.java
+END
+dateFieldValidatorClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/p/k-framework/code/!svn/ver/910/trunk/KFramework3Base/src/main/java/KFramework30/FieldValidators/dateFieldValidatorClass.java
+END

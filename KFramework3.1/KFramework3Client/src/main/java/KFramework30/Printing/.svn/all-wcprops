@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing
+END
+selectFieldActionListenerClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/selectFieldActionListenerClass.java
+END
+KPrintJobClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/KPrintJobClass.java
+END
+printSettingDialogClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/printSettingDialogClass.java
+END
+printSettingDialogClass.form
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/printSettingDialogClass.form
+END
+changeWidthDialogClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/changeWidthDialogClass.java
+END
+changeWidthDialogClass.form
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/changeWidthDialogClass.form
+END
+summaryActionListenerClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/summaryActionListenerClass.java
+END
+KPrintDataTableClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/KPrintDataTableClass.java
+END
+customSummaryOperationClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/customSummaryOperationClass.java
+END
+KPrintSectionClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/KPrintSectionClass.java
+END
+printingFieldInfoClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/printingFieldInfoClass.java
+END
+customPrintFieldsClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/customPrintFieldsClass.java
+END
+printableInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Printing/printableInterface.java
+END

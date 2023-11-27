@@ -1,0 +1,150 @@
+<!--
+This source code is part of the KFRAMEWORK  (http://k-framework.sourceforge.net/)
+Copyright (C) 2001  Alejandro Vazquez, Ke Li
+Feedback / Bug Reports vmaxxed@users.sourceforge.net
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.sf</groupId>
+    <artifactId>Sample2Server1</artifactId>
+    <version>3.1</version>
+    <packaging>war</packaging>
+
+    <name>Sample2Server1 Web App</name>
+
+  <repositories>
+
+        <repository>
+          <id>maven2</id>
+          <name>2Maven</name>
+          <url>http://repo2.maven.org/maven2/</url>
+          <layout>default</layout>
+        </repository>
+
+        <repository>
+            <id>java.net-m2</id>
+            <name>java.net - Maven 2</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/java.net-m2</url>
+        </repository>
+        
+  </repositories>
+
+
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+    </properties>
+
+
+    <build>
+        <plugins>
+            
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+                                         
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+           
+        </plugins>
+        <finalName>Sample2Server1</finalName>
+    </build>
+
+<dependencies>
+        
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>KFramework3Base</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>KFramework3Client</artifactId>
+          <version>${project.version}</version>
+        </dependency>           
+        
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>KFramework3Server</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>Sample2ProblemDomainComponent</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+
+       <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        
+        
+  
+  <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>6.0</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>  
+
+
+        <dependency>
+                <groupId>taglibs</groupId>
+                <artifactId>standard</artifactId>
+                <version>1.0.6</version>
+                <scope>provided</scope>
+        </dependency>   
+
+        <dependency>
+                <groupId>com.sun.faces</groupId>
+                <artifactId>jsf-impl</artifactId>
+                <version>2.0.3-b05</version>
+                <scope>provided</scope>
+        </dependency>  
+        
+        <!-- used by jar -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0.2</version>
+        </dependency> 
+                
+</dependencies>
+
+
+</project>

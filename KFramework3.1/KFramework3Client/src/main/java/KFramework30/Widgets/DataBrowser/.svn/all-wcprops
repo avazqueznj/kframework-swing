@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser
+END
+filterClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/filterClass.java
+END
+KBrowserDataWriterInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/KBrowserDataWriterInterface.java
+END
+KTableCellRendererBaseClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/KTableCellRendererBaseClass.java
+END
+SQLPreprocessorClass.java.bak
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/SQLPreprocessorClass.java.bak
+END
+calculatedFieldInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/calculatedFieldInterface.java
+END
+tableModelClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/tableModelClass.java
+END
+cellRenderingHookInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/cellRenderingHookInterface.java
+END
+SQLPreprocessorClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/SQLPreprocessorClass.java
+END
+tableHeaderRendererClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/tableHeaderRendererClass.java
+END
+recordClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/recordClass.java
+END
+KTableCellEditorBaseClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/KTableCellEditorBaseClass.java
+END
+cellWriterInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Widgets/DataBrowser/cellWriterInterface.java
+END

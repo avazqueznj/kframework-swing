@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Communication
+END
+dbTransactionClientClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Communication/dbTransactionClientClass.java
+END
+dbIteratorClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Communication/dbIteratorClass.java
+END
+XMLpersistentObjectTransactionClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Communication/XMLpersistentObjectTransactionClass.java
+END
+clusterManagerClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Communication/clusterManagerClass.java
+END
+persistentObjectManagerClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/p/k-framework/code/!svn/ver/912/trunk/KFramework3Client/src/main/java/KFramework30/Communication/persistentObjectManagerClass.java
+END
